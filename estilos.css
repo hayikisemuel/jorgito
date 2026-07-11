@@ -1,4 +1,3 @@
-/* Necesario para el fondo negro */
 .black-background {
     position: fixed;
     top: 0;
@@ -10,7 +9,6 @@
     overflow: hidden;
 }
 
-/* Tu clase del corazón */
 .full-screen-heart {
     position: absolute;
     width: 100%;
@@ -24,7 +22,6 @@
     z-index: 10000;
 }
 
-/* Necesario para las luciérnagas */
 .luciernaga {
     position: absolute;
     width: 6px;
@@ -43,4 +40,11 @@
 @keyframes volar {
     0%, 100% { transform: translate(0, 0); opacity: 0.3; }
     50% { transform: translate(100px, -100px); opacity: 1; }
+}
+
+/* AJUSTE PARA CELULARES */
+@media (max-width: 600px) {
+    .full-screen-heart {
+        font-size: 40vw; /* Tamaño adaptado para móvil */
+    }
 }
