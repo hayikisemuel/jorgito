@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos.css">
+    <title>Mi Corazón</title>
 </head>
 <body>
 
-    <div id="escenario">
-        <div id="miCorazon">❤️</div>
+    <!-- Contenedor principal que ocupa toda la pantalla con fondo negro -->
+    <div id="escenario" class="black-background">
+        <!-- Contenedor para las luciérnagas (necesario para que aparezcan) -->
+        <div id="contenedorLuciernagas"></div>
+
+        <!-- El corazón, ahora con su clase correcta para ser centrado -->
+        <div id="miCorazon" class="full-screen-heart">❤️</div>
     </div>
 
     <script src="script.js"></script>
