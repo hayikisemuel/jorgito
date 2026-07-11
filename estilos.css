@@ -1,0 +1,46 @@
+/* Necesario para el fondo negro */
+.black-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 9998;
+    overflow: hidden;
+}
+
+/* Tu clase del corazón */
+.full-screen-heart {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80vh; 
+    cursor: pointer;
+    animation: pulse 1.5s infinite ease-in-out;
+    z-index: 10000;
+}
+
+/* Necesario para las luciérnagas */
+.luciernaga {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 10px yellow;
+    animation: volar 5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes volar {
+    0%, 100% { transform: translate(0, 0); opacity: 0.3; }
+    50% { transform: translate(100px, -100px); opacity: 1; }
+}
