@@ -1,22 +1,73 @@
+/* 1. EL ESCENARIO (Fondo negro) */
+.black-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 9998; /* Detrás de todo */
+    overflow: hidden; /* Oculta lo que se salga */
+}
+
+/* 2. EL CORAZÓN (Centrado y animado) */
 .full-screen-heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado perfecto */
+    
+    /* Tamaño base grande pero sensato */
+    font-size: 35vmax; /* 35% de la dimensión mayor de la pantalla */
+    
+    cursor: pointer;
+    animation: pulse 1.5s infinite ease-in-out;
+    z-index: 10000; /* Delante de todo */
+    
+    /* Importante: Evitar que el emoji se desborde */
+    overflow: hidden;
+    /* Asegura que el emoji no se pueda seleccionar */
+    user-select: none; 
+}
+
+/* 3. LAS LUCIÉRNAGAS (Estilos recuperados) */
+#contenedorLuciernagas {
     position: absolute;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Cambiamos a 'clamp' para un tamaño flexible pero controlado */
-    font-size: clamp(100px, 50vw, 80vh); 
-    cursor: pointer;
-    animation: pulse 1.5s infinite ease-in-out;
-    z-index: 10000;
-    /* Esto evita que el emoji sobresalga si es muy grande */
-    overflow: hidden; 
+    top: 0;
+    left: 0;
+    z-index: 9999; /* Entre el fondo negro y el corazón */
+    pointer-events: none; /* Para que no bloqueen clics */
 }
 
-/* Ajuste específico para móviles */
-@media (max-width: 600px) {
+.luciernaga {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 10px yellow, 0 0 20px rgb(255, 255, 100);
+    animation: volar 5s infinite ease-in-out;
+    opacity: 0.3; /* Brillo suave inicial */
+}
+
+/* 4. ANIMACIONES */
+@keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+}
+
+@keyframes volar {
+    0%, 100% { transform: translate(0, 0); opacity: 0.3; }
+    50% { transform: translate(random(200)-100px, random(200)-100px); opacity: 1; }
+}
+
+/* 5. AJUSTE ESENCIAL PARA CELULARES (El secreto) */
+/* Usamos transform: scale() dentro de la media query */
+@media (max-width: 768px) {
     .full-screen-heart {
-        font-size: 60vw; /* Un valor más equilibrado para móviles */
+        /* Mantenemos el tamaño base, pero lo reducimos un 30% visualmente */
+        transform: translate(-50%, -50%) scale(0.7); 
     }
 }
